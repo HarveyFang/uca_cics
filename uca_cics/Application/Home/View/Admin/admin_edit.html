@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/Public/css/index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="content shop_list_content">
+    <h2 class="clear"><span class="l name">编辑管理账号</span></h2>
+    <div class="add_shop_wrapper">
+      <div class="add_shop_user_wrapper">
+        <div class="add_new_user">
+        	<form method="post" action="/Admin/admin_edit">
+						<input name="id" type="hidden" value="{$admin['id']}"/>
+        		<p class="clear input_wrapper">
+							<span class="l" style="width:200px">用户名</span>
+							<input name="username" id="pro_sort" class="l cai_name" type="text" size="50" value="{$admin['username']}" /><br/>
+						</p>
+        		<p class="clear input_wrapper">
+							<span class="l" style="width:200px">密码（不修改请留空）</span>
+							<input name="password" id="pro_sort" class="l cai_name" type="password" size="50" value=""/><br/>
+						</p>
+        		<p class="clear input_wrapper">
+              <span class="l" style="width:200px">身份</span>
+              <select name="level" id="pro_sort" class="l cai_name" type="text" style="width:200px">
+                <option value="1">文案</option>
+                <option value="2">顾问</option>
+                <option value="9">管理员</option>
+              </select><br/>
+            </p>
+						<p class="clear input_wrapper">
+							<input class="add_shop_user button  l" type="submit">
+						</p>
+        	</form>
+        </div>
+     	</div>
+    </div>
+  </div>
+</body>
+</html>

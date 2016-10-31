@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>美加澳客户信息管理系统</title>
+<link href="/Public/css/index.css" rel="stylesheet" type="text/css" /> 
+<link rel="shortcut icon" href="/Public/images/logo.ico"/>
+</head>
+
+<body class="outer_body" style="background-color: #F9F9F9">
+ <div id="container" class="yh">
+    <div class="header clear" style="background-color: #F1F1F1;position:fixed;top:0px;width:100%;">
+     <div style="float:left;width: 230px;display: block;height: 54px;padding-top: 7px;">
+     <img class="logo" src="/Public/images/logo.png" alt="" />
+      <!--h1 class="l logo" style="font-size: 30px;font-weight: 1000;color: #B45F04;">龙夫汇</h1--> 
+     </div>
+     <div style="float: left;">
+     	<span class="business_name" style="font-size: 20px;color: black;"></span>
+     </div>
+     <div style="float:right;width: 360px;">
+		      <p class="r user_info" style="float:right;">
+		      <span class="user_name"></span>{$admin_username},&nbsp;您好&nbsp;&nbsp;|&nbsp;&nbsp;
+		      
+		      <a class="wd_cz" style="color: #2B6191;" href="/Login/logout">
+		        <em class="wd_ico wd_ico2">&nbsp;</em>
+		      	退出
+		      </a>
+          </p>
+     	</div>
+		
+    </div> 
+    <div style="height: 38px;background-color: #FF8000;position:fixed;top:54px;width:100%;">
+      <p class="nav"><span>首页</span></p>
+    </div>
+    
+     
+    <div class="main clear" style="margin-top: 92px;"> 
+      <div class="left l">
+        <div class="category">
+          <a rel="/Member/member_list_show" class="category_one current">客户列表</a>
+        </div>
+        <div class="category">
+          <a rel="/Member/member_add_show" class="category_one">新增客户</a>
+        </div>
+        <div class="category">
+          <a rel="/Admin/admin_list_show" class="category_one">管理账号</a>
+        </div>
+      </div>
+      <div class="yh right">  
+        <iframe class="get_url" src="/Member/member_list_show" width="100%" height="100%" scrolling="no" frameborder="0" ></iframe>
+      </div>
+      <div style="position:fixed;bottom:0px;width:100%;height: 38px;background-color: #F1F1F1;margin:0; padding:0;">
+		  <span style="float:right;font-size: 13px;padding: 10px 40px 10px 10px;">美加澳营销 | 会员管理</span>
+      <span style="float:left;font-size: 13px;padding: 10px 10px 10px 40px;"> Copyright &copy; 2016 All Rights Reserved</span>
+    </div>
+    </div>
+   </div> 
+  <script type="text/javascript" src="/Public/js/jquery-1.8.0.min.js"></script>
+  <script type="text/javascript" src="/Public/js/global.js"></script>
+  <script type="text/javascript">
+    $(".left .category a").live("click",function(){
+      $(".nav .nav_current").text($(this).text());
+      $(".left").find(".category a").removeClass("current");
+      $(this).addClass("current");
+      $(".right .get_url").attr("src",$(this).attr("rel"));
+      return false;
+    })
+  </script>
+</body>
+</html>

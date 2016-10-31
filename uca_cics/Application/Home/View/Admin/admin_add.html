@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/Public/css/index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="content shop_list_content">
+    <h2 class="clear"><span class="l name">新增管理账号</span></h2>
+    <div class="add_shop_wrapper">
+      <div class="add_shop_user_wrapper">
+        <div class="add_new_user">
+        	<form method="post" action="/Admin/admin_add">
+        		<p class="clear input_wrapper">
+        		<p class="clear input_wrapper">
+							<span class="l" style="width:200px">用户名</span>
+							<input name="username" id="pro_sort" class="l cai_name" type="text" size="50" value="" style="width:200px"/><br/>
+						</p>
+        		<p class="clear input_wrapper">
+							<span class="l" style="width:200px">密码</span>
+							<input name="password" id="pro_sort" class="l cai_name" type="password" size="50" value="" style="width:200px"/><br/>
+						</p>
+        		<p class="clear input_wrapper">
+							<span class="l" style="width:200px">身份</span>
+              <select name="level" id="pro_sort" class="l cai_name" type="text" style="width:200px">
+                <option value="1">文案</option>
+                <option value="2">顾问</option>
+                <option value="9">管理员</option>
+              </select><br/>
+						</p>
+						<p class="clear input_wrapper">
+							<input class="add_shop_user button  l" type="submit">
+						</p>
+            <p class="clear input_wrapper">
+              1、所有账号都能添加客户信息<br>
+              2、文案不可查看客户的手机号和住址<br>
+              3、文案不可编辑客户信息<br>
+              4、文案不可编辑顾问和管理员的备注<br>
+              5、顾问不可编辑客户的手机号和住址<br>
+              6、顾问不可编辑文案和管理员的备注<br>
+              7、管理员具有所有权限<br>
+            </p>
+        	</form>
+        </div>
+     	</div>
+    </div>
+  </div>
+</body>
+</html>
