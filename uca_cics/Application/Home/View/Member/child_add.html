@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/Public/css/index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="content shop_list_content">
+    <h2 class="clear"><span class="l name">新增子女</span></h2>
+    <div class="add_shop_wrapper">
+      <div class="add_shop_user_wrapper">
+        <div class="add_new_user">
+        	<form method="post" action="/Member/child_add">
+        		<input type="hidden" value="{$p_id}" name="p_id" />
+        		<p class="clear input_wrapper">
+					<span class="l" style="width:100px">父母姓名</span>
+					<input id="pro_sort" class="l cai_name" type="text" size="50" readonly value="{$p_name}" style="border: 0px;"/><br/>
+				</p>
+        		<p class="clear input_wrapper">
+					<span class="l" style="width:100px">子女姓名</span>
+					<input name="name" id="pro_sort" class="l cai_name" type="text" size="50"/><br/>
+				</p>
+        		<p class="clear input_wrapper">
+					<span class="l" style="width:100px">子女性别</span>
+					<input type="radio" name="gender" value="0" checked>未知
+					<input type="radio" name="gender" value="1">男
+					<input type="radio" name="gender" value="2">女
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">子女年龄</span>
+					<select name="age" id="pro_sort" class="l cai_name" style="width: 380px;">
+						<for start="1" end="100">
+						<option>{$i}</option>
+						</for>
+					</select><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">子女是否工作</span>
+					<input type="radio" name="working" value="0" checked>未知
+					<input type="radio" name="working" value="1">上学
+					<input type="radio" name="working" value="2">工作
+				</p>
+				<p class="clear input_wrapper2">
+					<span class="l" style="width:100px">子女英语熟练度</span>
+					<input type="radio" name="english" value="0" checked>未知
+					<input type="radio" name="english" value="1">不懂
+					<input type="radio" name="english" value="2">一般
+					<input type="radio" name="english" value="3">熟练
+					<input type="radio" name="english" value="4">精通
+				</p>
+				<p class="clear input_wrapper2">
+					<span class="l" style="width:100px">子女留学状况</span>
+					<input type="radio" name="study_abroad" value="0" checked>未知
+					<input type="radio" name="study_abroad" value="1">不想留学
+					<input type="radio" name="study_abroad" value="2">想留学
+					<input type="radio" name="study_abroad" value="3">已经留学
+				</p>
+				<p class="clear input_wrapper2">
+					<span class="l" style="width:100px">子女上学情况</span>
+					<input type="radio" name="grade" value="0" checked>未知
+					<input type="radio" name="grade" value="1">幼儿及以下
+					<input type="radio" name="grade" value="2">小学
+					<input type="radio" name="grade" value="3">初中
+					<input type="radio" name="grade" value="4">高中
+					<input type="radio" name="grade" value="5">大学
+				</p>
+				<p class="clear input_wrapper">
+					<input class="add_shop_user button  l" type="submit" value="保存">
+					<a href="/Member"><input class="add_shop_user button  l" type="button" value="返回"></a>
+				</p>
+        	</form>
+        </div>
+     	</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/Public/css/index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="content shop_list_content">
+    <h2 class="clear"><span class="l name">编辑客户</span></h2>
+    <div class="add_shop_wrapper">
+      <div class="add_shop_user_wrapper">
+        <div class="add_new_user">
+        	<form method="post" action="/Member/member_edit">
+				<input name="id" type="hidden" value="{$member['id']}"/>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">姓名</span>
+					<input name="name" id="pro_sort" class="l cai_name" type="text" size="50" value="{$member['name']}" /><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">年龄</span>
+					<input name="age" id="pro_sort" class="l cai_name" type="text" size="50" value="{$member['age']}"/><br/>
+				</p>
+				<if condition="$Think.session.admin_level gt 1 ">
+					<p class="clear input_wrapper">
+						<span class="l" style="width:100px">手机号码</span>
+						<input name="phone" id="pro_sort" class="l cai_name" type="text" size="50" value="{$member['phone']}" <if condition="$Think.session.admin_level neq 9">readonly</if>/><br/>
+					</p>
+				</if>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">签证国家</span>
+					<input name="city_history" id="pro_sort" class="l cai_name" type="text" size="50" value="{$member['city_history']}"/><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">出行目的</span>
+					<input name="purpose" id="pro_sort" class="l cai_name" type="text" size="50" value="{$member['purpose']}"/><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">工作单位/职务</span>
+					<input name="work" id="pro_sort" class="l cai_name" type="text" size="50" value="{$member['work']}"/><br/>
+				</p>
+				<if condition="$Think.session.admin_level gt 1 ">
+    				<p class="clear input_wrapper">
+						<span class="l" style="width:100px">家庭地址</span>
+						<input name="address" id="pro_sort" class="l cai_name" type="text" size="50" value="{$member['address']}" <if condition="$Think.session.admin_level neq 9">readonly</if>/><br/>
+					</p>
+				</if>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">历史签证</span>
+					<input name="visa_history" id="pro_sort" class="l cai_name" type="text" size="50" value="{$member['visa_history']}"/><br/>
+				</p>
+				<p class="clear input_wrapper2">
+					<span class="l" style="width:100px">英语熟练度</span>
+					<input type="radio" name="en_proficiency" value="0" <if condition="$member.en_proficiency eq 0">checked</if>>未知
+					<input type="radio" name="en_proficiency" value="4" <if condition="$member.en_proficiency eq 4">checked</if>>不懂
+					<input type="radio" name="en_proficiency" value="1" <if condition="$member.en_proficiency eq 1">checked</if>>一般
+					<input type="radio" name="en_proficiency" value="2" <if condition="$member.en_proficiency eq 2">checked</if>>熟练
+					<input type="radio" name="en_proficiency" value="3" <if condition="$member.en_proficiency eq 3">checked</if>>精通
+				</p>
+				<p class="clear input_wrapper2">
+					<span class="l" style="width:100px">出国生孩子</span>
+					<input type="radio" name="abroad_baby" value="0" <if condition="$member.abroad_baby eq 0">checked</if>>未知
+					<input type="radio" name="abroad_baby" value="2" <if condition="$member.abroad_baby eq 2">checked</if>>不想
+					<input type="radio" name="abroad_baby" value="1" <if condition="$member.abroad_baby eq 1">checked</if>>想
+				</p>
+				<p class="clear input_wrapper2">
+					<span class="l" style="width:100px">婚姻状况</span>
+					<input type="radio" name="married" value="0" <if condition="$member.married eq 0">checked</if>>未知
+					<input type="radio" name="married" value="1" <if condition="$member.married eq 1">checked</if>>已婚
+					<input type="radio" name="married" value="2" <if condition="$member.married eq 2">checked</if>>未婚
+				</p>
+				<p class="clear input_wrapper2">
+					<span class="l" style="width:100px">移民倾向</span>
+					<input type="radio" name="appraise" value="1" <if condition="$member.appraise eq 1">checked</if>>★☆☆☆☆
+					<input type="radio" name="appraise" value="2" <if condition="$member.appraise eq 2">checked</if>>★★☆☆☆
+					<input type="radio" name="appraise" value="3" <if condition="$member.appraise eq 3">checked</if>>★★★☆☆
+					<input type="radio" name="appraise" value="4" <if condition="$member.appraise eq 4">checked</if>>★★★★☆
+					<input type="radio" name="appraise" value="5" <if condition="$member.appraise eq 5">checked</if>>★★★★★
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">文案备注</span>
+					<textarea name="remark_copywriter" id="pro_sort" class="l cai_name" type="text" style="margin: 0px; width: 380px; height: 100px;" <if condition="$Think.session.admin_level eq 2">readonly</if>>{$member['remark_copywriter']}</textarea><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">顾问备注</span>
+					<textarea name="remark_consultant" id="pro_sort" class="l cai_name" type="text" style="margin: 0px; width: 380px; height: 100px;" <if condition="$Think.session.admin_level eq 1">readonly</if>>{$member['remark_consultant']}</textarea><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">管理员备注</span>
+					<textarea name="remark_admin" id="pro_sort" class="l cai_name" type="text" style="margin: 0px; width: 380px; height: 100px;" <if condition="$Think.session.admin_level neq 9">readonly</if>>{$member['remark_admin']}</textarea><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<input class="add_shop_user button  l" type="submit" value="修改">
+					<a href="/Member/child_add_show?p_id={$member['id']}"><input class="add_shop_user button  l" type="button" value="添加子女" style="width: 122px;"></a>
+				</p>
+        	</form>
+        	<br><br><br>
+
+
+        	<!-- 子女编辑 -->
+        	<foreach name="child_list" item="child" key="k" >
+	        	<form method="post" action="/Member/child_edit">
+	        		<input type="hidden" value="{$child['id']}" name="id" />
+	        		<h2 class="clear"><span class="l name">子女 {$k+1}</span></h2>
+	        		<p class="clear input_wrapper">
+						<span class="l" style="width:100px">子女姓名</span>
+						<input name="name" id="pro_sort" class="l cai_name" type="text" size="50" value="{$child['name']}" /><br/>
+					</p>
+	        		<p class="clear input_wrapper">
+						<span class="l" style="width:100px">子女性别</span>
+						<input type="radio" name="gender" value="0" <if condition="$child.gender eq 0">checked</if>>未知
+						<input type="radio" name="gender" value="1" <if condition="$child.gender eq 1">checked</if>>男
+						<input type="radio" name="gender" value="2" <if condition="$child.gender eq 2">checked</if>>女
+					</p>
+					<p class="clear input_wrapper">
+						<span class="l" style="width:100px">子女年龄</span>
+						<select name="age" id="pro_sort" class="l cai_name" style="width: 380px;">
+							<for start="1" end="100">
+							<option <if condition="$child.age eq $i">selected</if>>{$i}</option>
+							</for>
+						</select><br/>
+					</p>
+					<p class="clear input_wrapper">
+						<span class="l" style="width:100px">子女是否工作</span>
+						<input type="radio" name="working" value="0" <if condition="$child.working eq 0">checked</if>>未知
+						<input type="radio" name="working" value="1" <if condition="$child.working eq 1">checked</if>>上学
+						<input type="radio" name="working" value="2" <if condition="$child.working eq 2">checked</if>>工作
+					</p>
+					<p class="clear input_wrapper2">
+						<span class="l" style="width:100px">子女英语熟练度</span>
+						<input type="radio" name="english" value="0" <if condition="$child.english eq 0">checked</if>>未知
+						<input type="radio" name="english" value="1" <if condition="$child.english eq 1">checked</if>>不懂
+						<input type="radio" name="english" value="2" <if condition="$child.english eq 2">checked</if>>一般
+						<input type="radio" name="english" value="3" <if condition="$child.english eq 3">checked</if>>熟练
+						<input type="radio" name="english" value="4" <if condition="$child.english eq 4">checked</if>>精通
+					</p>
+					<p class="clear input_wrapper2">
+						<span class="l" style="width:100px">子女留学状况</span>
+						<input type="radio" name="study_abroad" value="0" <if condition="$child.study_abroad eq 0">checked</if>>未知
+						<input type="radio" name="study_abroad" value="1" <if condition="$child.study_abroad eq 1">checked</if>>不想留学
+						<input type="radio" name="study_abroad" value="2" <if condition="$child.study_abroad eq 2">checked</if>>想留学
+						<input type="radio" name="study_abroad" value="3" <if condition="$child.study_abroad eq 3">checked</if>>已经留学
+					</p>
+					<p class="clear input_wrapper2">
+						<span class="l" style="width:100px">子女上学情况</span>
+						<input type="radio" name="grade" value="0" <if condition="$child.grade eq 0">checked</if>>未知
+						<input type="radio" name="grade" value="1" <if condition="$child.grade eq 1">checked</if>>幼儿及以下
+						<input type="radio" name="grade" value="2" <if condition="$child.grade eq 2">checked</if>>小学
+						<input type="radio" name="grade" value="3" <if condition="$child.grade eq 3">checked</if>>初中
+						<input type="radio" name="grade" value="4" <if condition="$child.grade eq 4">checked</if>>高中
+						<input type="radio" name="grade" value="5" <if condition="$child.grade eq 5">checked</if>>大学
+					</p>
+					<p class="clear input_wrapper">
+						<input class="add_shop_user button  l" type="submit" value="修改">
+						<a onclick="return confirm('您真的要删除此子女“{$child.name}”吗?')" href="/Member/child_delete?id={$child.id}"><input class="add_shop_user button  l" type="button" value="删除"></a>
+					</p>
+	        	</form>
+	        	<br><br><br>
+	        </foreach>
+        </div>
+     	</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/Public/css/index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="content shop_list_content">
+    <h2 class="clear"><span class="l name">新增客户</span></h2>
+    <div class="add_shop_wrapper">
+      <div class="add_shop_user_wrapper">
+        <div class="add_new_user">
+        	<form method="post" action="/Member/member_add">
+        		<p class="clear input_wrapper">
+					<span class="l" style="width:100px">姓名</span>
+					<input name="name" id="pro_sort" class="l cai_name" type="text" size="50"/><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">年龄</span>
+					<select name="age" id="pro_sort" class="l cai_name" style="width: 380px;">
+						<for start="1" end="100">
+						<option>{$i}</option>
+						</for>
+					</select><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">手机号码</span>
+					<input name="phone" id="pro_sort" class="l cai_name" type="text" size="50"/><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">签证国家</span>
+					<input name="city_history" id="pro_sort" class="l cai_name" type="text" size="50"/><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">出行目的</span>
+					<input name="purpose" id="pro_sort" class="l cai_name" type="text" size="50"/><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">工作单位/职务</span>
+					<input name="work" id="pro_sort" class="l cai_name" type="text" size="50"/><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">家庭地址</span>
+					<input name="address" id="pro_sort" class="l cai_name" type="text" size="50"/><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">历史签证</span>
+					<input name="visa_history" id="pro_sort" class="l cai_name" type="text" size="50"/><br/>
+				</p>
+				<p class="clear input_wrapper2">
+					<span class="l" style="width:100px">英语熟练度</span>
+					<input type="radio" name="en_proficiency" value="0" checked>未知
+					<input type="radio" name="en_proficiency" value="4">不懂
+					<input type="radio" name="en_proficiency" value="1">一般
+					<input type="radio" name="en_proficiency" value="2">熟练
+					<input type="radio" name="en_proficiency" value="3">精通
+				</p>
+				<p class="clear input_wrapper2">
+					<span class="l" style="width:100px">出国生孩子</span>
+					<input type="radio" name="abroad_baby" value="0" checked>未知
+					<input type="radio" name="abroad_baby" value="2">不想
+					<input type="radio" name="abroad_baby" value="1">想
+				</p>
+				<p class="clear input_wrapper2">
+					<span class="l" style="width:100px">婚姻状况</span>
+					<input type="radio" name="married" value="0" checked>未知
+					<input type="radio" name="married" value="1">已婚
+					<input type="radio" name="married" value="2">未婚
+				</p>
+				<p class="clear input_wrapper2">
+					<span class="l" style="width:100px">移民倾向</span>
+					<input type="radio" name="appraise" value="1">★☆☆☆☆
+					<input type="radio" name="appraise" value="2">★★☆☆☆
+					<input type="radio" name="appraise" value="3" checked>★★★☆☆
+					<input type="radio" name="appraise" value="4">★★★★☆
+					<input type="radio" name="appraise" value="5">★★★★★
+				</p>
+				<if condition="$Think.session.admin_level eq 1 ">
+					<p class="clear input_wrapper">
+						<span class="l" style="width:100px">文案备注</span>
+						<textarea name="remark_copywriter" id="pro_sort" class="l cai_name" type="text" style="margin: 0px; width: 380px; height: 100px;" ></textarea><br/>
+					</p>
+				</if>
+				<if condition="$Think.session.admin_level eq 2 ">
+					<p class="clear input_wrapper">
+						<span class="l" style="width:100px">顾问备注</span>
+						<textarea name="remark_consultant" id="pro_sort" class="l cai_name" type="text" style="margin: 0px; width: 380px; height: 100px;" ></textarea><br/>
+					</p>
+				</if>
+				<if condition="$Think.session.admin_level eq 9 ">
+					<p class="clear input_wrapper">
+						<span class="l" style="width:100px">管理员备注</span>
+						<textarea name="remark_admin" id="pro_sort" class="l cai_name" type="text" style="margin: 0px; width: 380px; height: 100px;"></textarea><br/>
+					</p>
+				</if>
+				<p class="clear input_wrapper">
+					<input class="add_shop_user button  l" type="submit" value="保存">
+				</p>
+        	</form>
+        </div>
+     	</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/Public/css/index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="content shop_list_content">
+    <h2 class="clear"><span class="l name">客户详情</span></h2>
+    <div class="add_shop_wrapper">
+      <div class="add_shop_user_wrapper">
+        <div class="add_new_user">
+			<p class="clear input_wrapper">
+				<span class="l" style="width:100px">姓名</span>
+				<input name="name" id="pro_sort" class="l cai_name" type="text" size="50" value="{$member['name']}（{$member['age']}岁）<if condition="$Think.session.admin_level gt 1 ">{$member['phone']}</if>" readonly style="border: 0px;"/><br/>
+			</p>
+			<p class="clear input_wrapper">
+				<span class="l" style="width:100px">签证国家</span>
+				<input name="city_history" id="pro_sort" class="l cai_name" type="text" size="50" value="{$member['city_history']}" readonly style="border: 0px;"/><br/>
+			</p>
+			<p class="clear input_wrapper">
+				<span class="l" style="width:100px">出行目的</span>
+				<input name="purpose" id="pro_sort" class="l cai_name" type="text" size="50" value="{$member['purpose']}" readonly style="border: 0px;"/><br/>
+			</p>
+			<p class="clear input_wrapper">
+				<span class="l" style="width:100px">工作单位/职务</span>
+				<input name="work" id="pro_sort" class="l cai_name" type="text" size="50" value="{$member['work']}" readonly style="border: 0px;"/><br/>
+			</p>
+			<p class="clear input_wrapper">
+				<span class="l" style="width:100px">家庭地址</span>
+				<input name="address" id="pro_sort" class="l cai_name" type="text" size="50" value="<if condition="$Think.session.admin_level gt 1 ">{$member['address']}<else />******</if>" readonly style="border: 0px;"/><br/>
+			</p>
+			<p class="clear input_wrapper">
+				<span class="l" style="width:100px">历史签证</span>
+				<input name="visa_history" id="pro_sort" class="l cai_name" type="text" size="50" value="{$member['visa_history']}" readonly style="border: 0px;"/><br/>
+			</p>
+			<p class="clear input_wrapper">
+				<span class="l" style="width:100px">英语熟练度</span>
+				<input name="visa_history" id="pro_sort" class="l cai_name" type="text" size="50" value="<if condition="$member.en_proficiency eq 0">-</if><if condition="$member.en_proficiency eq 4">不懂</if><if condition="$member.en_proficiency eq 1">一般</if><if condition="$member.en_proficiency eq 2">熟练</if><if condition="$member.en_proficiency eq 3">精通</if>" readonly style="border: 0px;"/><br/>
+			</p>
+			<p class="clear input_wrapper">
+				<span class="l" style="width:100px">出国生孩子</span>
+				<input name="visa_history" id="pro_sort" class="l cai_name" type="text" size="50" value="<if condition="$member.abroad_baby eq 0">-</if><if condition="$member.abroad_baby eq 2">不想</if><if condition="$member.abroad_baby eq 1">想</if>" readonly style="border: 0px;"/><br/>
+			</p>
+			<p class="clear input_wrapper">
+				<span class="l" style="width:100px">婚姻状况</span>
+				<input name="visa_history" id="pro_sort" class="l cai_name" type="text" size="50" value="<if condition="$member.married eq 0">-</if><if condition="$member.married eq 1">已婚</if><if condition="$member.married eq 2">未婚</if>" readonly style="border: 0px;"/><br/>
+			</p>
+			<p class="clear input_wrapper">
+				<span class="l" style="width:100px">文案备注</span>
+				<textarea name="remark_copywriter" id="pro_sort" class="l cai_name" type="text" style="margin: 0px; width: 380px; height: 90px;" readonly>{$member['remark_copywriter']}</textarea><br/>
+			</p>
+			<p class="clear input_wrapper">
+				<span class="l" style="width:100px">顾问备注</span>
+				<textarea name="remark_consultant" id="pro_sort" class="l cai_name" type="text" style="margin: 0px; width: 380px; height: 90px;" readonly>{$member['remark_consultant']}</textarea><br/>
+			</p>
+			<p class="clear input_wrapper">
+				<span class="l" style="width:100px">管理员备注</span>
+				<textarea name="remark_admin" id="pro_sort" class="l cai_name" type="text" style="margin: 0px; width: 380px; height: 90px;" readonly>{$member['remark_admin']}</textarea><br/>
+			</p>
+			<foreach name="child_list" item="child" key="k" >
+				<h2 class="clear"><span class="l name">子女 {$k+1}</span></h2>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">姓名</span>
+					<input name="name" id="pro_sort" class="l cai_name" type="text" size="50" value="
+						{$child['name']}（{$child['age']}岁）<if condition="$child['gender'] eq 1">男</if><if condition="$child['gender'] eq 2">女</if>" readonly style="border: 0px;"/><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">子女是否工作</span>
+					<input name="city_history" id="pro_sort" class="l cai_name" type="text" size="50" value="
+						<if condition="$child['working'] eq 0">未知
+						<elseif condition="$child['working'] eq 1"/>上学
+						<elseif condition="$child['working'] eq 2"/>工作
+						</if>
+						" readonly style="border: 0px;"/><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">子女英语熟练度</span>
+					<input name="city_history" id="pro_sort" class="l cai_name" type="text" size="50" value="
+						<if condition="$child['english'] eq 0">未知
+						<elseif condition="$child['english'] eq 1"/>不懂
+						<elseif condition="$child['english'] eq 2"/>一般
+						<elseif condition="$child['english'] eq 3"/>熟练
+						<elseif condition="$child['english'] eq 4"/>精通
+						</if>
+						" readonly style="border: 0px;"/><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">子女留学状况</span>
+					<input name="city_history" id="pro_sort" class="l cai_name" type="text" size="50" value="
+						<if condition="$child['english'] eq 0">未知
+						<elseif condition="$child['english'] eq 1"/>不想留学
+						<elseif condition="$child['english'] eq 2"/>想留学
+						<elseif condition="$child['english'] eq 3"/>已经留学
+						</if>
+						" readonly style="border: 0px;"/><br/>
+				</p>
+				<p class="clear input_wrapper">
+					<span class="l" style="width:100px">子女上学情况</span>
+					<input name="city_history" id="pro_sort" class="l cai_name" type="text" size="50" value="
+						<if condition="$child['english'] eq 0">未知
+						<elseif condition="$child['english'] eq 1"/>幼儿及以下
+						<elseif condition="$child['english'] eq 2"/>小学
+						<elseif condition="$child['english'] eq 3"/>初中
+						<elseif condition="$child['english'] eq 4"/>高中
+						<elseif condition="$child['english'] eq 5"/>大学
+						</if>
+						" readonly style="border: 0px;"/><br/>
+				</p>
+			</foreach>
+        </div>
+     	</div>
+    </div>
+  </div>
+</body>
+</html>

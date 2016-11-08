@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/Public/css/index.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body> 
+ 
+        <div class="content user_list_content">
+          <h2 class="clear"><span class="l name">客户列表</span></h2>
+          <p class="search clear">
+            <form method="post" action="/Member/member_list_show">
+              姓名：<input type="text" name="name" value="{$data_P['name']}" />
+              手机号码：<input type="text" name="phone" value="{$data_P['phone']}" />
+              签证国家：<input type="text" name="city_history" value="{$data_P['city_history']}" />
+              年龄：
+              <select name="age_min" id="pro_sort" style="width: 50px;">
+                <for start="1" end="100">
+                <option  <if condition="$data_P['age_min'] eq $i " >selected</if> value='{$i}'>{$i}</option>
+                </for>
+              </select>~
+              <select name="age_max" id="pro_sort" style="width: 50px;">
+                <for start="1" end="100">
+                  <option <if condition="$data_P['age_max'] eq $i " >selected</if> value="{$i}">{$i}</option>
+                </for>
+              </select>
+              移民倾向：
+              <select name="appraise" id="pro_sort" style="width: 100px;">
+                <option value='0'>请选择</option>
+                <option <if condition="$data_P['appraise'] eq 1 " >selected</if> value="1">★☆☆☆☆</option>
+                <option <if condition="$data_P['appraise'] eq 2 " >selected</if> value="2">★★☆☆☆</option>
+                <option <if condition="$data_P['appraise'] eq 3 " >selected</if> value="3">★★★☆☆</option>
+                <option <if condition="$data_P['appraise'] eq 4 " >selected</if> value="4">★★★★☆</option>
+                <option <if condition="$data_P['appraise'] eq 5 " >selected</if> value="5">★★★★★</option>
+              </select>
+              <a href="/Member/excel_out"><input class="search_submit r button" type="button" value="导出" /></a>
+              <input class="search_submit r button" type="submit" value="搜索" />
+            </form>
+          </p>
+          <br>
+          <br>
+		      <table class="user_list"   cellpadding="0" cellspacing="0" border="1" bordercolor="#eaeaea" width="100%" style="border-collapse:collapse;">
+            <thead>
+              <tr>
+                <th align="center" valign="middle">编号</th>
+                <th align="center" valign="middle">姓名</th>
+                <th align="center" valign="middle">年龄</th>
+                <th align="center" valign="middle">手机号码</th>
+                <th align="center" valign="middle">签证国家</th>
+                <th align="center" valign="middle">出行目的</th>
+                <th align="center" valign="middle">工作单位/职务</th>
+                <th align="center" valign="middle">家庭住址</th>
+                <th align="center" valign="middle">历史签证</th>
+                <!-- <th align="center" valign="middle">英语熟练度</th> -->
+                <!-- <th align="center" valign="middle">是否考虑出国生孩子</th> -->
+                <th align="center" valign="middle">随行人员</th>
+                <th align="center" valign="middle">婚姻状况</th>
+                <th align="center" valign="middle">文案备注</th>
+                <th align="center" valign="middle">顾问备注</th>
+                <th align="center" valign="middle">管理员备注</th>
+                <th align="center" valign="middle">移民倾向</th>
+                <th align="center" valign="middle">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+            	<foreach name="member_list" item="v" key="k" >
+				      <tr>
+            		<td align="center" valign="middle">{$v['id']}</td>
+            		<td align="center" valign="middle"><a href="/Member/member_info?id={$v['id']}" style="color:#2868c8"><b>{$v['name']}</b></a></td>
+            		<td align="center" valign="middle">{$v['age']}</td>
+                <td align="center" valign="middle"><if condition="$Think.session.admin_level gt 1 ">{$v['phone']}<else />******</if></td>
+                <td align="center" valign="middle">{$v['city_history']}</td>
+                <td align="center" valign="middle">{$v['purpose']}</td>
+            		<td align="center" valign="middle">{$v['work']}</td>
+                <td align="center" valign="middle"><if condition="$Think.session.admin_level gt 1 ">{$v['address']}<else />******</if></td>
+                <td align="center" valign="middle">{$v['visa_history']}</td>
+                <td align="center" valign="middle">随行人员</td>
+<!--                 <td align="center" valign="middle">
+                  <if condition="$v.en_proficiency eq 1">一般
+                  <elseif condition="$v.en_proficiency eq 2"/>熟练
+                  <elseif condition="$v.en_proficiency eq 3"/>精通
+                  <elseif condition="$v.en_proficiency eq 4"/>否
+                  <else />-
+                  </if>
+                </td> -->
+<!--                 <td align="center" valign="middle">
+                  <if condition="$v.abroad_baby eq 1">是
+                  <elseif condition="$v.abroad_baby eq 2"/>否
+                  <else />-
+                  </if>
+                </td> -->
+                <td align="center" valign="middle">
+                  <if condition="$v.married eq 1">已婚
+                  <elseif condition="$v.married eq 2"/>单身
+                  <else />-
+                  </if>
+                </td>
+                <td align="center" valign="middle">{$v['remark_copywriter']}</td>
+                <td align="center" valign="middle">{$v['remark_consultant']}</td>
+                <td align="center" valign="middle">{$v['remark_admin']}</td>
+                <td align="center" valign="middle">
+                  <ul id="star_con">
+                    <li <if condition="$v.appraise gt 0">class="light"</if>></li>
+                    <li <if condition="$v.appraise gt 1">class="light"</if>></li>
+                    <li <if condition="$v.appraise gt 2">class="light"</if>></li>
+                    <li <if condition="$v.appraise gt 3">class="light"</if>></li>
+                    <li <if condition="$v.appraise gt 4">class="light"</if>></li>
+                  </ul>
+                </td>
+                <td align="center" valign="middle">
+                  <a href="/Member/member_edit_show?id={$v['id']}">编辑</a>
+                  <if condition="$Think.session.admin_level eq 9 "> | <a onclick="return confirm('您真的要删除此客户吗?')" href="/Member/member_delete?id={$v['id']}">删除</a></if>
+                </td>
+            	</tr>
+				    </foreach>
+            </tbody>
+          </table>
+          <p class="page">{$page}</p>
+		  <br>
+		</div>
+      </div>
+ <script type="text/javascript" src="/Public/js/jquery-1.8.0.min.js"></script>
+  <script type="text/javascript" src="/Public/js/global.js"></script>
+  
+</body>
+</html>

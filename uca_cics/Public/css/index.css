@@ -175,3 +175,29 @@ color: #fff;}
     position: relative;
 }
 
+#star_con {
+  padding-left: 0;
+  overflow: hidden;
+ }
+#star_con li {
+  float: left;
+  list-style: none;
+  width: 27px;
+  height: 27px;
+  background: url(../images/star.gif)
+ }
+#star_con li a {
+  display: block;
+  width: 100%;
+  padding-top: 27px;
+  overflow: hidden;
+ }
+#star_con li.light {
+  background-position: 0 -29px;
+ }
+
+ .input_wrapper2{
+    margin-bottom:10px;
+    font-size: 14px;
+    line-height: 30px;
+  }

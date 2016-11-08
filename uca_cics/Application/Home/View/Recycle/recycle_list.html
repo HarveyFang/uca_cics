@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/Public/css/index.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body> 
+ 
+        <div class="content user_list_content">
+          <h2 class="clear"><span class="l name">客户列表</span></h2>
+          <br>
+          <table class="user_list"   cellpadding="0" cellspacing="0" border="1" bordercolor="#eaeaea" width="100%" style="border-collapse:collapse;">
+            <thead>
+              <tr>
+                <th align="center" valign="middle">序号</th>
+                <th align="center" valign="middle">姓名</th>
+                <th align="center" valign="middle">年龄</th>
+                <th align="center" valign="middle">手机号码</th>
+                <th align="center" valign="middle">签证国家</th>
+                <th align="center" valign="middle">出行目的</th>
+                <th align="center" valign="middle">工作单位/职务</th>
+                <th align="center" valign="middle">家庭住址</th>
+                <th align="center" valign="middle">历史签证</th>
+                <th align="center" valign="middle">文案备注</th>
+                <th align="center" valign="middle">顾问备注</th>
+                <th align="center" valign="middle">管理员备注</th>
+                <th align="center" valign="middle">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <foreach name="member_list" item="v" key="k" >
+              <tr>
+                <td align="center" valign="middle">{$k+1}</td>
+                <td align="center" valign="middle"><p>{$v['name']}</p></td>
+                <td align="center" valign="middle">{$v['age']}</td>
+                <td align="center" valign="middle">{$v['phone']}</td>
+                <td align="center" valign="middle">{$v['city_history']}</td>
+                <td align="center" valign="middle">{$v['purpose']}</td>
+                <td align="center" valign="middle">{$v['work']}</td>
+                <td align="center" valign="middle">{$v['address']}</td>
+                <td align="center" valign="middle">{$v['visa_history']}</td>
+                <td align="center" valign="middle">{$v['remark_copywriter']}</td>
+                <td align="center" valign="middle">{$v['remark_consultant']}</td>
+                <td align="center" valign="middle">{$v['remark_admin']}</td>
+                <td align="center" valign="middle"><a onclick="return confirm('您真的要恢复此客户吗?')" href="/Recycle/member_recycle?id={$v['id']}">恢复</a></td>
+              </tr>
+            </foreach>
+            </tbody>
+          </table>
+          <p class="page">{$page}</p>
+      <br>
+    </div>
+      </div>
+ <script type="text/javascript" src="/Public/js/jquery-1.8.0.min.js"></script>
+  <script type="text/javascript" src="/Public/js/global.js"></script>
+  
+</body>
+</html>
